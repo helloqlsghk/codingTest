@@ -10,13 +10,15 @@ public class ServerScaleCounter {
 
     public int solution(int[] players, int m, int k) {
         int answer = 0;
+        //서버를 Queue에 담는다 Queue의 각 요소들은 서버의 반납시간을 저장한다.
         Queue<Integer> server = new LinkedList<>();
-
+        //필요 서버의 수
         int needServer;
+        //현재 서버의 수
         int currentServer;
 
         for (int i = 0; i < players.length; i++) {
-
+            //현재 필요한  서버의 수
             needServer = players[i]/m;
 
             //Queue에 반납시기가 된 서버는 반납
@@ -31,6 +33,7 @@ public class ServerScaleCounter {
 
                 answer += newServer;
                 for(int j=0; j<newServer;j++){
+                    //i시간에 추가된서버는 i+k 시간후에 반납
                     server.offer(i+k);
                 }
             }
@@ -52,4 +55,3 @@ public class ServerScaleCounter {
         System.out.println("Test 3 (Expected 12): " + scaler.solution(test3, 25, 1));
     }
 }
-
