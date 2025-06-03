@@ -23,8 +23,6 @@ public class Turret {
         int y2 = sc.nextInt();
         int r2 = sc.nextInt();
 
-
-
         double dx = x2-x1;
         double dy = y2-y1;
         double d  = Math.sqrt(dx*dx+dy*dy);
